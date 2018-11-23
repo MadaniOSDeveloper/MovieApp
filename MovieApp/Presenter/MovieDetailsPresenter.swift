@@ -52,7 +52,7 @@ class MovieDetailsPresenter: NSObject{
             if (obj.belongsToCollection?.collectionId) != nil{
                 
                 if let collectionId = obj.belongsToCollection?.collectionId{
-                    print(collectionId)
+                    //print(collectionId)
                     let urlString = "collection/\(collectionId)"
                     serviceLayer.servcieRequestCollection(urlString:urlString) { (collectionMovies, errString) in
                         if let errString = errString{
@@ -61,7 +61,7 @@ class MovieDetailsPresenter: NSObject{
                         }
                         if let collectionMovies = collectionMovies{
                             self.collectionsMovies = collectionMovies as CollectionMovies?
-                            print(collectionMovies)
+                            //print(collectionMovies)
                             completion()
                         }
                     }
@@ -69,7 +69,7 @@ class MovieDetailsPresenter: NSObject{
                 
             }else{
                 self.errorString = "Simillar Collection Movies not available"
-                print("Simillar Collection Movies not available")
+                //print("Simillar Collection Movies not available")
                 completion()
             }
         }
@@ -105,12 +105,12 @@ extension MovieDetailsPresenter: UICollectionViewDataSource {
                                 }
                             }
                         }else{
-                            print("URL is not proper")
+                            //print("URL is not proper")
                         }
                     }
                 }
                 else{
-                    print("url string does not exists")
+                    //print("url string does not exists")
                 }
             }
         }

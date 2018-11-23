@@ -28,13 +28,13 @@ struct Details:Codable{
     let popularity:Double?
     
     enum CodingKeys : String, CodingKey {
-        case title = "title"
-        case id =  "id"
+        case title
+        case id
         case posterPath = "poster_path"
         case belongsToCollection = "belongs_to_collection"
-        case overview = "overview"
+        case overview
         case releaseDate = "release_date"
-        case popularity = "popularity"
+        case popularity
     }
     
     init(from decoder: Decoder) throws {

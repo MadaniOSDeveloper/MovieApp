@@ -69,7 +69,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let movieId = presenter.moiveDataSource?.result?[indexPath.row].id else { return }
+        guard let movieId = presenter.moiveDataSource?.results?[indexPath.row].id else { return }
         let detailsPresenter = MovieDetailsPresenter(with: movieId)
         let detailsController = MovieDetailViewController(with: detailsPresenter)
         self.present(detailsController, animated: true, completion: nil)    }

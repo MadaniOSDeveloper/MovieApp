@@ -121,7 +121,7 @@ class ServiceLayer {
             
             do{
                 let collectionList = try JSONDecoder().decode(CollectionMovies.self, from: data)
-                print(collectionList)
+                //print(collectionList)
                 completion(collectionList,nil)
             }
             catch let err{

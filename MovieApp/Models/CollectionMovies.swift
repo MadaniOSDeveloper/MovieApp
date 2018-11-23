@@ -15,7 +15,7 @@ struct CollectionMovies:Codable {
         let posterPath:String?
         
         enum CodingKeys : String, CodingKey {
-            case id =  "id"
+            case id
             case posterPath = "poster_path"
         }
         init(from decoder: Decoder) throws {
@@ -27,7 +27,7 @@ struct CollectionMovies:Codable {
     let parts:[Parts]?
     
     enum CodingKeys :String, CodingKey {
-        case parts = "parts"
+        case parts
     }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)

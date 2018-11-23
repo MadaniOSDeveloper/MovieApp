@@ -36,7 +36,7 @@ extension MoviesCollectionPresenter: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         
-        if let movieCount = moiveDataSource?.result?.count {
+        if let movieCount = moiveDataSource?.results?.count {
             return movieCount
         }
         return 0
@@ -46,7 +46,7 @@ extension MoviesCollectionPresenter: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MoviesCollectionViewCell
         
         if cell != nil {
-            if let obj =  moiveDataSource?.result?[indexPath.row]{
+            if let obj =  moiveDataSource?.results?[indexPath.row]{
                 cell?.movieTitle.text = obj.title!
                 cell?.moviePosterImageView.image = UIImage(named: "defaultImage")
                 if let posterImage = obj.posterPath{
@@ -61,12 +61,11 @@ extension MoviesCollectionPresenter: UICollectionViewDataSource {
                                 }
                             }
                         }else{
-                            print("URL does not exists")
+                            //print("URL does not exists")
                         }
                     }
                 }
-                print("URL does not exists")
-                
+                //print("URL does not exists")
             }
         }
         return cell!

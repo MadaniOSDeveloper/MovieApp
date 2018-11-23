@@ -131,6 +131,18 @@ class MovieDetailViewController: UIViewController {
 }
 extension MovieDetailViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt
+        indexPath: IndexPath) {
+        guard let movieId = presenter.collectionsMovies?.parts?[indexPath.row].id else { return }
+        let detailsPresenter = MovieDetailsPresenter(with: movieId)
+        let detailsController = MovieDetailViewController(with: detailsPresenter)
+        self.addChild(detailsController)
+        let myFrame = UIScreen.main.bounds
+        detailsController.view.frame = myFrame
+        for subview in self.view.subviews {
+            subview.removeFromSuperview()
+        }
+        self.view.addSubview(detailsController.view)
+        detailsController.didMove(toParent: self)
     }
 }

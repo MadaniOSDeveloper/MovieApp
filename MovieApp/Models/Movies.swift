@@ -14,8 +14,8 @@ struct Movies:Codable{
         let id:Int64
         let posterPath:String?
         enum CodingKeys : String, CodingKey {
-            case title = "title"
-            case id =  "id"
+            case title
+            case id
             case posterPath = "poster_path"
             
         }
@@ -26,16 +26,16 @@ struct Movies:Codable{
             posterPath = try values.decode(String.self, forKey: .posterPath)
         }
     }
-    let result:[Movie]?
+    let results:[Movie]?
     let page: Int
     
     enum CodingKeys :String, CodingKey {
-        case result = "results"
-        case page = "page"
+        case results
+        case page
     }
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        result = try values.decode([Movie].self, forKey: .result)
+        results = try values.decode([Movie].self, forKey: .results)
         page = try values.decode(Int.self, forKey: .page)
         
     }
